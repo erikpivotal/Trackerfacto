@@ -4,7 +4,6 @@ require 'faker'
 RSpec.describe Item, type: :model do
   it 'can be valid' do
     item = build(:item)
-    puts item.inspect
     expect(item).to be_valid
   end
 
@@ -31,7 +30,7 @@ RSpec.describe Item, type: :model do
       existing = create(:item)
       item = build(:item, content: existing.content)
       expect(item).to_not be_valid
-      expect(item.errors[:content]).to include("has already been taken")
+      expect(item.errors[:content]).to include 'has already been taken'
     end
   end
 end
