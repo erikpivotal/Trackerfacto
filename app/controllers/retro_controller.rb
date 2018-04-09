@@ -1,6 +1,6 @@
 class RetroController < ApplicationController
   def index
-    @retros = Retro.all
+     @retros = Retro.all
   end
 
   def create

@@ -4,8 +4,10 @@ require 'faker'
 RSpec.describe RetroController, type: :controller do
   describe '#index' do
     it 'can be valid' do
+      new_retro = create(:retro)
       get :index
       expect(response).to render_template("index")
+      expect(assigns(:retros)).to eq([new_retro])
     end
   end
 
